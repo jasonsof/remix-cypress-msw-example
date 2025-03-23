@@ -15,7 +15,10 @@ export const action = async ({ request }: ActionFunctionArgs) => {
     return redirect("/errorPage");
   }
 
-  return redirect("/otherPage");
+  const data = await response.json();
+  const id = data.id;
+
+  return redirect(`/otherPage?id=${id}`);
 }
 
 export default function Index() {
