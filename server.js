@@ -35,6 +35,9 @@ const app = express();
 // Serve static files from the public folder
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Serve static files from the build output folder
+app.use(express.static(path.join(__dirname, 'build/client')));
+
 app.all(
   '*',
   createRequestHandler({
