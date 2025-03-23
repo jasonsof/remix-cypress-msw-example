@@ -11,7 +11,7 @@
     "typecheck": "tsc",
     "cypress:run": "cypress run",
     "cypress:open": "cypress open",
-    "test:e2e": "npm run build && start-server-and-test start http://localhost:3007 cypress:run"
+    "test:e2e": "npm run build && NODE_ENV=test start-server-and-test start http://localhost:3007 cypress:run"
   },
   "dependencies": {
     "@remix-run/node": "^2.16.2",
@@ -38,6 +38,7 @@
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "msw": "^2.7.3",
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.4",
     "typescript": "^5.1.6",
