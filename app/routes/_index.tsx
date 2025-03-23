@@ -18,7 +18,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
   const data = await response.json();
   const id = data.id;
 
-  return redirect(`/otherPage?id=${id}`);
+  return redirect(`/success?id=${id}`);
 }
 
 export default function Index() {
@@ -26,8 +26,11 @@ export default function Index() {
     <div className="flex h-screen items-center justify-center">
       <div className="flex flex-col items-center gap-16">
         <header className="flex flex-col items-center gap-9">
+          <h1 className="leading text-2xl font-bold text-gray-800 dark:text-gray-100">
+            Create a new product
+          </h1>
           <Form method="post" className="flex flex-col space-y-6">
-            <input type="text" placeholder="title" name="title" className="bg-white text-black" />
+            <input type="text" placeholder="title" name="title" className="bg-white text-black" required />
             <input
               value="Create a new product"
               type="submit"

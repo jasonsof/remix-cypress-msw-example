@@ -9,7 +9,7 @@ export default function OtherPage() {
       <div className="flex flex-col items-center gap-16">
         <header className="flex flex-col items-center gap-9">
           <h1 className="leading text-2xl font-bold text-gray-800 dark:text-gray-100">
-            Welcome to <b>The Other Page</b>
+            Product created with <b>ID:</b>
           </h1>
           <div className="p-4 bg-gray-100 shadow-inner rounded">
             <p className="text-lg text-gray-700" data-test-id="productId">{id}</p>
