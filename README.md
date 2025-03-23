@@ -1,40 +1,22 @@
-# Welcome to Remix!
+# Demo of Remix app with Cypress testing and MSW mocking
 
-- 📖 [Remix docs](https://remix.run/docs)
+This is a very contrived example, but it demonstrates the basic setup.  The app has two pages: / and /success.  The / page has a form action that submits to an external API, https://dummyjson.com/docs/products#products-add.  The /success page is where the user is redirected after the form is successfully submitted, displaying the ID of the newly created product.
 
-## Development
+The mock handlers are located in `./server.js` (which is the entry point for the app).
 
-Run the dev server:
+The Cypress tests are located in `./cypress/e2e/smoke.cy.ts`
 
-```shellscript
-npm run dev
-```
+## Running the app (with live API calls)
 
-## Deployment
+1. Clone the repo
+2. Run `npm install`
+3. Run `npm run dev`
+4. Open your browser to `http://localhost:3000`
 
-First, build your app for production:
+## Running the Cypress tests (with MSW mocking)
 
-```sh
-npm run build
-```
+1. Run `npm run test:e2e`
 
-Then run the app in production mode:
+## Next steps
 
-```sh
-npm start
-```
-
-Now you'll need to pick a host to deploy it to.
-
-### DIY
-
-If you're familiar with deploying Node applications, the built-in Remix app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-- `build/server`
-- `build/client`
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever css framework you prefer. See the [Vite docs on css](https://vitejs.dev/guide/features.html#css) for more information.
+- Move the mocking handlers out of server.js and into their own files
