@@ -12,7 +12,7 @@ export default function OtherPage() {
             Welcome to <b>The Other Page</b>
           </h1>
           <div className="p-4 bg-gray-100 shadow-inner rounded">
-            <p className="text-lg text-gray-700">ID: {id}</p>
+            <p className="text-lg text-gray-700" data-test-id="productId">{id}</p>
           </div>
         </header>
       </div>
