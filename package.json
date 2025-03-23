@@ -7,7 +7,7 @@
     "build": "remix vite:build",
     "dev": "remix vite:dev",
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
-    "start": "PORT=3007 NODE_ENV=development node server.js",
+    "start": "PORT=3007 node server.js",
     "typecheck": "tsc",
     "cypress:run": "cypress run",
     "cypress:open": "cypress open",
