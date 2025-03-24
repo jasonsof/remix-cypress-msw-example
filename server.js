@@ -4,28 +4,16 @@ import express from 'express';
 import { createRequestHandler } from '@remix-run/express';
 import path, { dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { http, HttpResponse } from 'msw'
-import { setupServer } from 'msw/node'
+
+import { server } from './mocks/node.js';
+
+if (process.env.NODE_ENV === "test") {
+  server.listen();
+  console.info("🔶 MSW (in-process) mock server running");
+}
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-
-const handlers = [
-  http.post('https://dummyjson.com/products/add', () => {
-    return HttpResponse.json({
-      id: 'from-mock-api-c7b3d8e0-5e0b-4b0f-8b3a-3b9f4b3d3b3d',
-      title: 'This isn\'t a real product',
-      price: 1000,
-    })
-  }),
-]
-
-if(process.env.NODE_ENV === 'test' || process.env.NODE_ENV === 'development') {
-  console.log('Starting MSW server');
-
-  const mockServer = setupServer(...handlers);
-  mockServer.listen();
-}
 
 // Import the build
 import * as build from './build/server/index.js';
