@@ -6,11 +6,7 @@ import path, { dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 import { server } from './mocks/node.js';
-
-if (process.env.NODE_ENV === "test") {
-  server.listen();
-  console.info("🔶 MSW (in-process) mock server running");
-}
+import { mswRouter } from './mocks/mswRouter.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -19,6 +15,14 @@ const __dirname = dirname(__filename);
 import * as build from './build/server/index.js';
 
 const app = express();
+app.use(express.json());
+
+if (process.env.NODE_ENV === "test") {
+  server.listen();
+  app.use('/msw', mswRouter);
+
+  console.info("🔶 MSW (in-process) mock server running");
+}
 
 // Serve static files from the public folder
 app.use(express.static(path.join(__dirname, 'public')));
